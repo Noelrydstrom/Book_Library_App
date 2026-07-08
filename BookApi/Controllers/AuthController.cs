@@ -49,7 +49,10 @@ public class AuthController : ControllerBase
 
         await _context.SaveChangesAsync();
 
-        return Ok("User created");
+        return Ok(new
+        {
+            message = "User created"
+        });
     }
 
     [HttpPost("login")]
