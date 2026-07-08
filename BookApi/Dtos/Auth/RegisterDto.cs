@@ -1,6 +1,6 @@
-namespace BookApi.DTOs;
+namespace BookApi.DTOs.Auth;
 
-public class LoginDto
+public class RegisterDto
 {
     public string Username { get; set; } = string.Empty;
 

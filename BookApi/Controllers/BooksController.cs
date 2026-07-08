@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using BookApi.Data;
 using BookApi.Models;
 using Microsoft.AspNetCore.Authorization;
+using BookApi.DTOs.Books;
 
 namespace BookApi.Controllers;
 
@@ -44,9 +45,17 @@ public class BooksController : ControllerBase
 
     // POST
     [HttpPost]
-    public async Task<ActionResult<Book>> CreateBook(Book book)
+    public async Task<ActionResult<Book>> CreateBook(CreateBookDto request)
     {
+        var book = new Book
+        {
+            Title = request.Title,
+            Author = request.Author,
+            PublishDate = request.PublishDate
+        };
+
         _context.Books.Add(book);
+
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(
@@ -59,18 +68,25 @@ public class BooksController : ControllerBase
 
     // PUT
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateBook(int id, Book book)
+    public async Task<IActionResult> UpdateBook(int id, UpdateBookDto request)
     {
-        if (id != book.Id)
+        var book = await _context.Books.FindAsync(id);
+
+        if (book == null)
         {
-            return BadRequest();
+            return NotFound();
         }
 
-        _context.Entry(book).State = EntityState.Modified;
+        book.Title = request.Title;
+        book.Author = request.Author;
+        book.PublishDate = request.PublishDate;
 
         await _context.SaveChangesAsync();
 
-        return NoContent();
+        return Ok(new
+        {
+            message = "Book updated successfully"
+        });
     }
 
 
@@ -89,6 +105,9 @@ public class BooksController : ControllerBase
 
         await _context.SaveChangesAsync();
 
-        return NoContent();
+        return Ok(new
+        {
+            message = "Book deleted successfully"
+        });
     }
 }
