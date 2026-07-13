@@ -1,9 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BooksService {
+export class BookService {
 
-  constructor() { }
+  private apiUrl = 'http://localhost:5043/api/books';
+
+  constructor(private http: HttpClient) { }
+
+  getBooks(): Observable<any[]> {
+
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    return this.http.get<any[]>(this.apiUrl, { headers });
+  }
+
 }
