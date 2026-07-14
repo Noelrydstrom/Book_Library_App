@@ -1,4 +1,33 @@
-<div class="container mt-5">
+<div class="container mt-4">
+
+    <div class="card p-3 mb-4">
+
+        <h4>Add Book</h4>
+
+        <input
+            class="form-control mb-2"
+            placeholder="Title"
+            [(ngModel)]="newBook.title">
+
+        <input
+            class="form-control mb-2"
+            placeholder="Author"
+            [(ngModel)]="newBook.author">
+
+        <input
+            type="date"
+            class="form-control mb-3"
+            [(ngModel)]="newBook.publishDate">
+
+        <button
+            class="btn btn-success"
+            (click)="createBook()">
+
+            Add Book
+
+        </button>
+
+    </div>
 
     <h2>Books</h2>
 
@@ -7,27 +36,111 @@
         <thead>
 
             <tr>
-
                 <th>Title</th>
                 <th>Author</th>
                 <th>Publish Date</th>
-
+                <th>Actions</th>
             </tr>
 
         </thead>
 
         <tbody>
 
-            <tr *ngFor="let book of books">
+           <tr *ngFor="let book of books">
 
                 <td>{{ book.title }}</td>
+
                 <td>{{ book.author }}</td>
+
                 <td>{{ book.publishDate | date }}</td>
+
+                <td>
+
+                    <button
+                        class="btn btn-warning btn-sm me-2"
+                        (click)="editBook(book)">
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        class="btn btn-danger btn-sm"
+                        (click)="deleteBook(book.id)">
+
+                        Delete
+
+                    </button>
+
+                </td>
 
             </tr>
 
         </tbody>
 
     </table>
+
+    <div class="modal fade" id="editBookModal" tabindex="-1">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">
+                        Edit Book
+                    </h5>
+
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <input
+                        class="form-control mb-3"
+                        [(ngModel)]="editingBook.title">
+
+                    <input
+                        class="form-control mb-3"
+                        [(ngModel)]="editingBook.author">
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        [(ngModel)]="editingBook.publishDate">
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        class="btn btn-primary"
+                        (click)="saveChanges()">
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>

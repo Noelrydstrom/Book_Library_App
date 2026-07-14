@@ -11,15 +11,37 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<any[]> {
-
+  private getHeaders() {
     const token = localStorage.getItem('token');
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
-    });
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      })
+    };
+  }
 
-    return this.http.get<any[]>(this.apiUrl, { headers });
+  getBooks(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl, this.getHeaders());
+  }
+
+  addBook(book: any): Observable<any> {
+    return this.http.post(this.apiUrl, book, this.getHeaders());
+  }
+
+  updateBook(book: any): Observable<any> {
+    return this.http.put(
+      `${this.apiUrl}/${book.id}`,
+      book,
+      this.getHeaders()
+    );
+  }
+
+  deleteBook(id: number): Observable<any> {
+    return this.http.delete(
+      `${this.apiUrl}/${id}`,
+      this.getHeaders()
+    );
   }
 
 }
