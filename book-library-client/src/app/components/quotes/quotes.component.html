@@ -1,1 +1,140 @@
-<p>quotes works!</p>
+<div class="container mt-4">
+
+    <div class="card p-3 mb-4">
+
+        <h4>Add Quote</h4>
+
+        <input
+            class="form-control mb-2"
+            placeholder="Quote"
+            [(ngModel)]="newQuote.text">
+
+        <input
+            class="form-control mb-3"
+            placeholder="Author"
+            [(ngModel)]="newQuote.author">
+
+        <button
+            class="btn btn-success"
+            (click)="createQuote()">
+
+            Add Quote
+
+        </button>
+
+    </div>
+
+    <h2>Quotes</h2>
+
+    <table class="table table-striped">
+
+        <thead>
+
+            <tr>
+
+                <th>Quote</th>
+                <th>Author</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let quote of quotes">
+
+                <td>{{ quote.text }}</td>
+
+                <td>{{ quote.author }}</td>
+
+                <td>
+
+                    <button
+                        class="btn btn-warning btn-sm me-2"
+                        (click)="editQuote(quote)">
+
+                        Edit
+
+                    </button>
+
+                    <button
+                        class="btn btn-danger btn-sm"
+                        (click)="deleteQuote(quote.id)">
+
+                        Delete
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- Edit Modal -->
+
+<div class="modal fade" id="editQuoteModal" tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    Edit Quote
+
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input
+                    class="form-control mb-3"
+                    [(ngModel)]="editingQuote.text">
+
+                <input
+                    class="form-control"
+                    [(ngModel)]="editingQuote.author">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    (click)="saveChanges()">
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

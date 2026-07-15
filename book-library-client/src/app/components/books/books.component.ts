@@ -1,4 +1,3 @@
-declare module 'bootstrap';
 import * as bootstrap from 'bootstrap';
 
 import { Component, OnInit } from '@angular/core';
