@@ -18,6 +18,7 @@
             class="btn btn-success"
             (click)="createQuote()">
 
+            <i class="fa-solid fa-plus"></i>
             Add Quote
 
         </button>
@@ -54,6 +55,7 @@
                         class="btn btn-warning btn-sm me-2"
                         (click)="editQuote(quote)">
 
+                        <i class="fa-solid fa-pen"></i>
                         Edit
 
                     </button>
@@ -62,6 +64,7 @@
                         class="btn btn-danger btn-sm"
                         (click)="deleteQuote(quote.id)">
 
+                        <i class="fa-solid fa-trash"></i>
                         Delete
 
                     </button>
@@ -87,7 +90,8 @@
             <div class="modal-header">
 
                 <h5 class="modal-title">
-
+                    
+                    <i class="fa-solid fa-pen"></i>
                     Edit Quote
 
                 </h5>
@@ -127,6 +131,7 @@
                     class="btn btn-primary"
                     (click)="saveChanges()">
 
+                    <i class="fa-solid fa-floppy-disk"></i>
                     Save Changes
 
                 </button>

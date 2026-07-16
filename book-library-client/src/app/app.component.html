@@ -8,7 +8,8 @@
             class="navbar-brand"
             routerLink="/books">
 
-            📚 Book Library
+            <i class="fa-solid fa-book-open"></i>
+            Book Library
 
         </a>
 
@@ -33,7 +34,8 @@
                     <a
                         class="nav-link"
                         routerLink="/books">
-
+                        
+                        <i class="fa-solid fa-book"></i>
                         Books
 
                     </a>
@@ -46,6 +48,7 @@
                         class="nav-link"
                         routerLink="/quotes">
 
+                        <i class="fa-solid fa-quote-left"></i>
                         Quotes
 
                     </a>
@@ -55,9 +58,23 @@
             </ul>
 
             <button
+                class="btn btn-outline-warning me-2"
+                (click)="toggleDarkMode()">
+
+                <i
+                class="fa-solid"
+                [ngClass]="darkMode ? 'fa-sun' : 'fa-moon'">
+                </i>
+                
+                {{ darkMode ? 'Light Mode' : 'Dark Mode' }}
+
+            </button>
+
+            <button
                 class="btn btn-outline-light"
                 (click)="logout()">
 
+                <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
 
             </button>

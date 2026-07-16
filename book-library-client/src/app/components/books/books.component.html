@@ -23,6 +23,7 @@
             class="btn btn-success"
             (click)="createBook()">
 
+            <i class="fa-solid fa-plus"></i>
             Add Book
 
         </button>
@@ -59,7 +60,8 @@
                     <button
                         class="btn btn-warning btn-sm me-2"
                         (click)="editBook(book)">
-
+                        
+                        <i class="fa-solid fa-pen"></i>
                         Edit
 
                     </button>
@@ -68,6 +70,7 @@
                         class="btn btn-danger btn-sm"
                         (click)="deleteBook(book.id)">
 
+                        <i class="fa-solid fa-trash"></i>
                         Delete
 
                     </button>
@@ -131,6 +134,7 @@
                         class="btn btn-primary"
                         (click)="saveChanges()">
 
+                        <i class="fa-solid fa-floppy-disk"></i>
                         Save Changes
 
                     </button>

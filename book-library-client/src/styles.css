@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== DARK MODE ===== */
+
+body.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+body.dark-mode .card {
+    background: #1f1f1f;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background: #000 !important;
+}
+
+/* Tabeller */
+
+body.dark-mode .table thead,
+body.dark-mode .table thead tr,
+body.dark-mode .table thead th {
+    background-color: #2b2b2b !important;
+    color: white !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .table td {
+    color: white;
+    background-color: #1f1f1f;
+    border-color: #444;
+}
+
+/* Zebra-ränder */
+
+body.dark-mode .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #252525 !important;
+    color: white;
+}
+
+body.dark-mode .table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: #1f1f1f !important;
+    color: white;
+}
+
+/* Hover */
+
+body.dark-mode .table-hover tbody tr:hover > * {
+    background-color: #333 !important;
+}
+
+/* Formulär */
+
+body.dark-mode .form-control {
+    background: #2d2d2d;
+    color: white;
+    border-color: #555;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #bdbdbd;
+}
+
+/* Modal */
+
+body.dark-mode .modal-content {
+    background: #1f1f1f;
+    color: white;
+}
