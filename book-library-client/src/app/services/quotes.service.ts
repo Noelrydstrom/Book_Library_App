@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class QuoteService {
 
-  private apiUrl = 'http://localhost:5043/api/quotes';
+  private apiUrl = 'https://booklibraryapp-b7hcdae9dpf9dhhp.swedencentral-01.azurewebsites.net/api/quotes';
 
   constructor(
     private http: HttpClient,

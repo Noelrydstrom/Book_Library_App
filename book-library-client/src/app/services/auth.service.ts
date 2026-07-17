@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5043/api/auth';
+  private apiUrl = 'https://booklibraryapp-b7hcdae9dpf9dhhp.swedencentral-01.azurewebsites.net/api/auth';
 
   constructor(private http: HttpClient) { }
 
