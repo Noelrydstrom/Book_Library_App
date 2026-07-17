@@ -18,12 +18,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddOpenApi();
 
 // CORS
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy
-            .AllowAnyOrigin()
+        policy.WithOrigins(
+                "http://localhost:4200",
+                "https://zealous-mud-0db257b10.7.azurestaticapps.net"
+            )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
