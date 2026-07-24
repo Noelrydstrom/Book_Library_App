@@ -1,1 +1,49 @@
-<p>register works!</p>
+<div class="container mt-5" style="max-width:400px;">
+
+    <h2 class="mb-4">
+        <i class="fa-solid fa-user-plus me-2"></i>
+        Register
+    </h2>
+
+    <div class="mb-3">
+
+        <input
+            class="form-control"
+            placeholder="Username"
+            [(ngModel)]="username">
+
+    </div>
+
+    <div class="mb-3">
+
+        <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            [(ngModel)]="password">
+
+    </div>
+
+    <button
+        class="btn btn-success w-100"
+        (click)="register()">
+
+        <i class="fa-solid fa-user-plus me-2"></i>
+
+        Create account
+
+    </button>
+
+    <div class="text-center mt-3">
+
+        <span>Already have an account?</span>
+
+        <a routerLink="/login" class="ms-2">
+
+            Login
+
+        </a>
+
+    </div>
+
+</div>
